@@ -1,0 +1,140 @@
+" ==========================================
+" 1. PLUGINS (The 'Cool' Stuff)
+" ==========================================
+call plug#begin('~/.vim/plugged')
+
+" The Theme (Solarized)
+Plug 'altercation/vim-colors-solarized'
+
+" The Status Bar (Makes it look pro)
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Auto-close brackets () [] {}
+Plug 'jiangmiao/auto-pairs'
+
+" Highlights unique characters in lines (for fast navigation)
+Plug 'unblevable/quick-scope'
+
+call plug#end()
+
+" ==========================================
+" 2. GENERAL SETTINGS
+" ==========================================
+set nocompatible            " Be iMproved, not Vi compatible
+filetype plugin indent on   " Enable file detection
+syntax on                   " Turn on syntax highlighting
+
+" Line Numbers
+set number                  " Show current line number
+set relativenumber          " Show relative numbers (great for jumping)
+
+" Copy/Paste Compatibility
+set clipboard=unnamedplus   " USE MACOS CLIPBOARD (Cmd+C / Cmd+V works!)
+
+" Mouse & Scroll
+set mouse=a                 " Enable mouse for clicking/scrolling
+set scrolloff=8             " Keep 8 lines visible around cursor
+
+" Search
+set ignorecase              " Case insensitive search
+set smartcase               " Case sensitive if capital used
+set incsearch               " Highlight as you type
+
+" Indentation (4 spaces, no tabs)
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" Visuals
+set cursorline              " Highlight the specific line you are on
+set showmatch               " Highlight matching parenthesis
+set termguicolors           " Enable true colors
+
+" ==========================================
+" 3. THEME (Solarized Light)
+" ==========================================
+set background=light
+colorscheme solarized
+let g:airline_theme='solarized'
+
+" ==========================================
+" 4. COMPETITIVE PROGRAMMING KEYBINDS
+" ==========================================
+" F5: Run interactively (Terminal opens -> You Paste -> Press Enter -> Press Ctrl+D)
+nnoremap <F5> :!make run<CR>
+
+" F6: Run using Clipboard (Instantly runs with whatever you just copied)
+nnoremap <F6> :!make run_paste<CR>
+" Map 'jj' to Escape (Faster than reaching for Esc)
+inoremap jj <Esc>
+
+" F7: Interactive Run (Paste Custom Input)
+" Saves -> Compiles -> Runs ./Solution
+" (You can type or paste input, then Ctrl+D to finish)
+map <F7> :w <CR> :!make && ./Solution <CR>
+
+" F8: Compile Only
+" Useful to check for syntax errors without running
+map <F8> :w <CR> :!make <CR>
+
+" F9: Run Sample Tests
+" Saves -> Compiles -> Runs 'make test' (checks sample cases)
+map <F9> :w <CR> :!make && make test <CR>
+
+" F10: Run Custom File
+" Saves -> Compiles -> Runs ./Solution < custom.in
+map <F10> :w <CR> :!make && ./Solution < custom.in <CR>
+
+" ==========================================
+" 5. EXTRA SHORTCUTS
+" ==========================================
+" Ctrl+A to Select All
+noremap <C-a> ggVG
+
+" Leader key is Space (modern standard)
+let mapleader = " "
+" F4: Copy ALL code to Mac Clipboard (ready to paste in Browser)
+nnoremap <F4> :%y+<CR>
+" Space + w to save
+nnoremap <leader>w :w<CR>
+" ----------------------------------------------------------------
+"  MACOS NATIVE SHORTCUTS (Copy, Paste, Undo, Redo, Save, Select All)
+" ----------------------------------------------------------------
+
+" --- COPY (Cmd+C) ---
+" In Visual Mode: Copy selection to Mac Clipboard
+vnoremap <D-c> "+y
+
+" --- PASTE (Cmd+V) ---
+" In Normal Mode: Paste from Mac Clipboard
+nnoremap <D-v> "+p
+" In Insert Mode: Paste from Mac Clipboard (and keep typing)
+inoremap <D-v> <C-r>+
+" In Command Mode: Paste into the command line (like searching)
+cnoremap <D-v> <C-r>+
+
+" --- UNDO (Cmd+Z) ---
+" In Normal Mode: Undo
+nnoremap <D-z> u
+" In Insert Mode: Undo without leaving Insert mode
+inoremap <D-z> <C-o>u
+
+" --- REDO (Cmd+Shift+Z) ---
+" In Normal Mode: Redo
+nnoremap <D-Z> <C-r>
+" In Insert Mode: Redo
+inoremap <D-Z> <C-o><C-r>
+
+" --- SAVE (Cmd+S) ---
+" Normal Mode: Save file
+nnoremap <D-s> :w<CR>
+" Insert Mode: Save and stay in Insert mode
+inoremap <D-s> <Esc>:w<CR>a
+
+" --- SELECT ALL (Cmd+A) ---
+" Normal/Visual Mode: Select entire file
+noremap <D-a> ggVG
+inoremap <D-a> <Esc>ggVG
