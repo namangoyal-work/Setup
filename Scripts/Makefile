@@ -16,6 +16,13 @@ CXXFLAGS := -std=c++17 -O2 -g \
 
 $(PROBLEM_NAME): $(PROBLEM_NAME).cpp
 	$(CXX) $(CXXFLAGS) $(PROBLEM_NAME).cpp -o $(PROBLEM_NAME)
+# --- Fast Submit (Requires online-judge-tools) ---
+# 1. python3 extracts the "url" field from problem.json
+# 2. oj submit sends the file to that URL
+# 3. -y flag confirms "yes" automatically
+submit: $(PROBLEM_NAME)
+	$(eval URL := $(shell python3 -c "import json; print(json.load(open('problem.json'))['url'])"))
+	oj submit "$(URL)" $(PROBLEM_NAME).cpp -y
 
 clean:
 	rm -f $(PROBLEM_NAME) *.res *.out
