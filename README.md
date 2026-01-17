@@ -52,4 +52,7 @@ getprob
 It should ask for make_prob.sh.  
 Next, we setup the make_prob.sh. Download the script and paste it in the Scripts folder. Give it permissions to run using the code provided above. Then again setup the aliases correctly as pointed out earlier.   
 Then we move on to setting up the templates and the makefile for building and running the system.  Create a folder by the name of .template using terminal in the programming folder. Then in the .terminal folder create a file named template.cpp the one which you want to use for competitive programming. The also paste the makefile in the same .template folder and your competitive programming setup is done.  
+Next we move on to fast submit, we use a python library called online-judge-tools, install it using pip. Login to all the websites using it, type oj login website-url.  
+U now have everything setup completely i believe. Just test if everything works fine or not.  
+
 
