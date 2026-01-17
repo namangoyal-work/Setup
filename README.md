@@ -8,7 +8,11 @@
 The repository focuses on setting up the computer's terminal, vpn, competitive programming setup and the ide for creating projects and latex and other things.   
 ## Terminal Setup  
 Beware that there are a lot of file name dependent aliases in the zshrc, so kindly update those aliases as per requirement and naming of folders.  
-Use the zshrc for the ohmyzsh and get the zsh from brew. That is all.  
+Use the zshrc for the ohmyzsh and get the zsh from brew. That is all. Also then install mvim and paste the vimrc file in the vimrc file and also in mvimrc file. To check where vimrc file resides run the command :   
+``` bash
+vim --version
+```
+You will see at the bottom the location of vimrc. Only one of those files I believe is writable so just write/ paste the config file in there.  
 
 
 ## Competitive Programming Setup  
