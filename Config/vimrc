@@ -24,8 +24,8 @@ call plug#end()
 set nocompatible            " Be iMproved, not Vi compatible
 filetype plugin indent on   " Enable file detection
 syntax on                   " Turn on syntax highlighting
-
-" Line Numbers
+set guifont=Menlo:h14       " set the font size 
+"Line Numbers
 set number                  " Show current line number
 set relativenumber          " Show relative numbers (great for jumping)
 
@@ -138,3 +138,5 @@ inoremap <D-s> <Esc>:w<CR>a
 " Normal/Visual Mode: Select entire file
 noremap <D-a> ggVG
 inoremap <D-a> <Esc>ggVG
+" --- Maps F2 TO fast Submit 
+nnoremap <F2> :w <bar> !make submit<CR>
