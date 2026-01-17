@@ -42,6 +42,7 @@ the python package manager in the conda virtual environment and then using pip u
 ``` bash
 conda install pip
 pip install docopt
+pip install setuptools
 ```
 I believe, now the download_problem.py should be fully working (Note: It only works in the programming virtual environment).  
 You can test by creating a new folder in the Programming folder called Practice and then name by platform and then opening a terminal there and typing the alias that you created
