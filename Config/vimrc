@@ -129,7 +129,7 @@ nnoremap <D-Z> <C-r>
 inoremap <D-Z> <C-o><C-r>
 
 " --- SAVE (Cmd+S) ---
-" Normal Mode: Save file
+" Normal Mode: Save file 
 nnoremap <D-s> :w<CR>
 " Insert Mode: Save and stay in Insert mode
 inoremap <D-s> <Esc>:w<CR>a
